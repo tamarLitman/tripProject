@@ -1,0 +1,51 @@
+<!-- <table>
+    <caption>apartments</caption>
+
+    <tbody >
+
+      <tr *ngFor="let a of this.ts.AllTrip">
+        <td data-label="Account">{{a.tripCode}}</td>
+        <td data-label="Account">{{a.tripDestination}}</td>
+        <td data-label="Due Date">{{a.typeCode}}</td>
+      </tr>
+
+    </tbody>
+  </table> -->
+
+<!-- <h4>Basic mat-select</h4> -->
+<mat-form-field>
+  <mat-label>Trip Type</mat-label>
+  <mat-select name="selectedType" [(ngModel)]="selectedType">
+    <mat-option  *ngFor="let t of this.ts.AllTypes" [value]="t.typeCode">{{t.typeCode}}:{{t.typeName}}</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<div class="div" *ngFor="let t of this.ts.AllTrip">
+<div *ngIf="(selectedType==0 || selectedType==t.typeCode)" >
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>Destination: {{t.tripDestination}}</mat-card-title>
+      <mat-card-subtitle>At: {{t.tripDate}}</mat-card-subtitle>
+      <mat-card-subtitle>Price: {{t.price}}</mat-card-subtitle>
+      <mat-card-subtitle>typeCode: {{t.typeCode}}</mat-card-subtitle>
+      
+    </mat-card-header>
+    <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+    <img class="img" [src]="a.imgRoute+t.photo+'.jpg'">
+    <mat-card-content>
+      <!-- <p>
+          The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+          A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+          bred for hunting.
+        </p> -->
+    </mat-card-content>
+    <mat-card-actions>
+      <!-- <button mat-button>LIKE</button> -->
+
+      <button (click)="send(t.tripCode!)" mat-button>details</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+</div>
+<!-- <router-outlet></router-outlet> -->

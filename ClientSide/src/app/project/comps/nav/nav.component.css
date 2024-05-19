@@ -1,0 +1,144 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+:root {
+	--sidebar-width: 200px;
+	--sidebar-secondary-color: green;
+	
+	--icon-width: 50px;
+	--icon-padding: 10px;
+	--icon-font-size: 20px;
+}
+
+*,
+*::before,
+*::after {
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    /* background: linear-gradient(90deg,rgb(77, 185, 77),rgb(6, 78, 6)); */
+}
+
+nav {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
+nav > ul,
+nav > ul > li {
+    outline:0;
+}
+
+li > a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.sidebar {
+	position: fixed;
+	z-index: 100;
+	background: rgba(0,0,0,.5);
+	width: calc(var(--icon-font-size) + var(--icon-padding) * 2);
+	height: 100vh;
+	overflow: hidden;
+	transition: width .05s linear;
+	width: 7%;
+	background-color: #9094aa;
+	color: #7c1919;
+	display: flex;
+	padding: 26px 20px 20px;
+	/* align-items: center; */
+	height: 100%;
+	font: 500 20px/32px Roboto, "Helvetica Neue", sans-serif;
+	  
+}
+
+.sidebar:hover{
+	width: var(--sidebar-width);
+	overflow: visible;
+}
+
+.item:hover > a, .item.active > a, .item > a:focus {
+	background: var(--sidebar-secondary-color);
+}
+
+.item a {
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
+	align-items: center;
+	color:white;
+	opacity:.8;
+	transition: all .1s linear;
+}
+
+.item a * {
+	color:inherit;
+	opacity:inherit;
+}
+
+.item a:hover{
+	opacity: 1;
+}
+
+.sidebarText {
+	font-size: var(--icon-font-size);
+	/* text-align: left; */
+}
+
+.icon {
+	width: var(--icon-width);
+	padding: var(--icon-padding);
+	font-size: var(--icon-font-size);
+}
+
+.content {
+	min-height: 100vh;
+	overflow: hidden;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.cards {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 20px;
+	padding: 20px 60px;
+}
+
+.card {
+	width: min(100%, 500px);
+  	background: rgba(255, 255, 255);
+  	border-radius: 16px;
+  	font-family: "Poppins", sans-serif;
+}
+
+.card:hover > img {
+	filter: contrast(100%);
+}
+
+.card > img {
+  display: block;
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  object-position: 50% 50%;
+  border-radius: 16px 16px 0 0;
+  filter: contrast(70%);
+  transition: all 0.6s cubic-bezier(0.43, 0.41, 0.22, 0.91);
+}
+
+.cardText {
+	padding: 10px;
+}
+
+.cardText p:first-child {
+	font-weight: bold;
+}

@@ -1,0 +1,30 @@
+.form{
+    border:  solid 3px;
+    padding: 130px 100px;
+}
+.button{
+margin: 2%;  
+  width: 100px;
+}
+.example-container mat-form-field + mat-form-field {
+  margin-left: 6px;
+}
+
+.example-right-align {
+  text-align: right;
+}
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+  display: none;
+}
+
+input.example-right-align {
+  -moz-appearance: textfield;
+}
+.example-section {
+  margin: 12px 0;
+}
+
+
+

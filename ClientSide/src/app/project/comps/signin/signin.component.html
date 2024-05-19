@@ -1,0 +1,44 @@
+<form class="form" (ngSubmit)="send()" [formGroup]="myForm">
+    <p>
+        <mat-form-field  appearance="outline">
+          <mat-label>First Name</mat-label>
+          <input matInput placeholder="FirstName" formControlName="firstName">
+        </mat-form-field>
+    </p>
+
+    <p>
+        <mat-form-field  appearance="outline">
+          <mat-label>Last Name</mat-label>
+          <input matInput placeholder="LastName" formControlName="lastName">
+        </mat-form-field>
+      </p> 
+       <p>
+        <mat-form-field  appearance="outline">
+          <mat-label>Phone</mat-label>
+          <input matInput placeholder="Phone" formControlName="phone">
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field  appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="Email" formControlName="email">
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field  appearance="outline">
+          <mat-label>Login Password</mat-label>
+          <input matInput placeholder="LoginPass" formControlName="loginPassword">
+        </mat-form-field>
+      </p>
+
+      <section class="example-section">
+        <mat-checkbox  formControlName="firstAidCertificate" class="example-margin">FirstAidCertificate</mat-checkbox>
+      </section>
+
+      <button class="button" mat-fab extended color="primary" type="submit">
+        <!-- s<mat-icon>favorite</mat-icon> -->
+        submit
+      </button>
+</form>

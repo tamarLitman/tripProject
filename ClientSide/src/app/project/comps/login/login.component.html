@@ -1,0 +1,27 @@
+<form class="form" (ngSubmit)="send()" [formGroup]="myForm">
+
+  <p>
+    <mat-form-field class="email" appearance="outline">
+      <!-- <mat-hint>Name</mat-hint> -->
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="Placeholder"  formControlName="email" required>
+      <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+    </mat-form-field>
+  </p>
+  <section *ngIf="Email.invalid && Email.dirty">
+    <h6>not valid email!!</h6>
+</section>
+  <p>
+    <mat-form-field  appearance="outline">
+      <mat-label>Enter your password</mat-label>
+      <input formControlName="pass" matInput [type]="hide ? 'password' : 'text'">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+  </p>
+  <button class="button" mat-fab extended color="primary" type="submit">
+    <!-- s<mat-icon>favorite</mat-icon> -->
+    submit
+  </button>
+</form>

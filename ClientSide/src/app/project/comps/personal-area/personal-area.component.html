@@ -1,1 +1,45 @@
-<p>personal-area works!</p>
+<!-- type="submit" value="submit" -->
+<br>
+<br>
+<div class="example-button-row">
+<button mat-raised-button type="submit" value="submit" (click)="change()" mat-button>change my details</button>
+<button mat-raised-button type="submit" value="submit" (click)="delete()" mat-button>Delete my user</button>
+</div>
+<mat-form-field>
+    <mat-label>choose a trip time</mat-label>
+    <mat-select name="selectedTime" [(ngModel)]="selectedTime" (selectionChange)="filterByTime(selectedTime)" >
+        <mat-option [value]="1">trip in the past</mat-option>
+        <mat-option [value]="2">trip in the future</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>sort by type or price</mat-label>
+    <mat-select name="sort" [(ngModel)]="sort" (selectionChange)="sortTrips(sort)">
+      <mat-option  [value]="1">sort by trip type</mat-option>
+      <mat-option   [value]="2">sort by trip price</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+
+
+<div class="div" *ngFor="let t of this.filterTrips">
+        <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>Destination: {{t.tripDestination}}</mat-card-title>
+          <mat-card-subtitle>At: {{t.tripDate | date:'dd MMMM yyyy'}}</mat-card-subtitle>
+          <mat-card-subtitle>Price: {{t.price}}</mat-card-subtitle>
+          <mat-card-subtitle>typeCode: {{t.typeCode}}</mat-card-subtitle>
+          
+        </mat-card-header>
+        <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+        <img class="img" [src]="a.imgRoute+t.photo+'.jpg'">
+        <mat-card-actions >
+            <!-- <button mat-button>LIKE</button>             mat-raised-button class="button" color="primary" type="submit"-->
+            <button *ngIf="canCancle(t!)" (click)="cancel(t)" mat-button>cancel</button>
+        </mat-card-actions>
+      </mat-card>
+    <!-- </div> -->
+</div>
+    <!-- <router-outlet></router-outlet> -->
+    

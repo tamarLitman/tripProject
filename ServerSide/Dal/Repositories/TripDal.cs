@@ -20,6 +20,7 @@ namespace Dal.Repositories
             try
             {
                 trip.DepartureTime = TimeSpan.Zero;
+                
                  await db.Trips.AddAsync(trip);
                  await db.SaveChangesAsync();
                 return trip.TripCode;
@@ -78,6 +79,20 @@ namespace Dal.Repositories
             {
                 throw new Exception(ex.Message);
             }
+        }
+
+        public async Task<bool> isFirstAid(Trip trip)
+        {
+            return true;
+        //    try
+        //    {
+        //        Trip t=await db.Trips.FirstAsync(tt=>tt.TripCode==trip.TripCode);
+        //        t.IsFirstAid=
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw new Exception(ex.Message);
+        //    }
         }
 
         public async Task<bool> UpdateTrip(Trip trip)

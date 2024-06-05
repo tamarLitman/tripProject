@@ -42,6 +42,7 @@ namespace webApi.Controllers
         }
 
         [HttpPut]
+    
         public async Task<bool> UpdateTrip([FromBody] TripDto t)
         {
             return await bll.UpdateTrip(t);

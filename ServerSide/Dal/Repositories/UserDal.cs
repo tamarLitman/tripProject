@@ -68,20 +68,12 @@ namespace Dal.Repositories
 
         public async Task<User> GetByMailAndPasword(string email, string password)
         {
-            //try
-            //{
-            return await db.Users.FirstOrDefaultAsync(u => u.LoginPassword == password && u.Email == email);
-            //    var user= await db.Users.FirstOrDefaultAsync(u=>u.Email==email && u.LoginPassword == password) ;
-            //    if(user != null) 
-            //        return user;
-            //    return null;
-
-            //}
-            //catch
-            //{
-            //    return null;
-            //}
+                        return await db.Users.FirstOrDefaultAsync(u => u.LoginPassword == password && u.Email == email);
+        
         }
+
+
+
         //get trips
         public async Task<List<Trip>> GetAllTrip(int userId)
         {
@@ -123,6 +115,10 @@ namespace Dal.Repositories
             }
         }
 
-     
+        public async Task<User> GetById(int id)
+        {
+            return await db.Users.FirstOrDefaultAsync(u => u.UserCode==id);
+
+        }
     }
 }

@@ -9,7 +9,7 @@ import { TripType } from '../classes/TripType';
   providedIn: 'root'
 })
 export class TripService {
-
+  FilterTrip:Array<trip>=new Array<trip>()
   AllTrip: Array<trip>=new Array<trip>;
   AllTypes:Array<TripType>=new Array<TripType>;
   constructor(public ht:HttpClient,
@@ -28,6 +28,9 @@ export class TripService {
   }
   getByCode(code:number):Observable<trip>
   {
-    return this.ht.get<trip>(this.a.basicUrl+"Trip/:"+code)
+    console.log("++++++++");
+    console.log(this.a.basicUrl+"Trip/:"+code);
+    debugger
+    return this.ht.get<trip>(this.a.basicUrl+"Trip/"+code)
   }
 }

@@ -23,6 +23,7 @@ public partial
     public decimal? Price { get; set; }
 
     public string? Photo { get; set; }
+    
 
     public virtual ICollection<BookingPlace> BookingPlaces { get; set; } = new List<BookingPlace>();
 

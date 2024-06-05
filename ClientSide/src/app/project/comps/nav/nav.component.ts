@@ -12,5 +12,6 @@ export class NavComponent {
   constructor(private r:Router,
     public api:ApiService,){}
 
+
   
 }

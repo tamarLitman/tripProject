@@ -13,5 +13,6 @@ namespace Bll.IServices
         Task<List<TripTypeDto>> GetAllTripTypes();
         Task<int> AddTripType(string typeName);
         Task<bool> DeleteTripType(int code);
+       
     }
 }

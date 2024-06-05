@@ -1,69 +1,43 @@
+
 <body>
-    <nav class="sidebar">
-        <ul>
-            <li class="item">
-                <a routerLink="LogIn">
-					<i class="fa fa-home icon"></i>
-					<div class="sidebarText">Login</div>
-				</a>
-            </li>
-			<!-- <li class="item">
-                <a routerLink="SignIn">
-					<i class="fa-solid fa-image icon"></i>
-					<div class="sidebarText">Sighin</div>
-				</a>
-            </li> -->
-			 <li class="item">
-                <a routerLink="AllTrips">
-					<i class="fa-solid fa-envelope icon"></i>
-					<div class="sidebarText">AllTrips</div>
-				</a>
-            </li>
-			<li class="item" *ngIf="this.api.CurrentUser.userCode">
-                <a routerLink="PersonalArea">
-					<i class="fa-solid fa-envelope icon"></i>
-					<div class="sidebarText">{{this.api.CurrentUser.firstName}}</div>
-				</a>
-            </li>
-			<!-- <li class="item">
-                <a href="#">
-					<i class="fa-solid fa-comment icon"></i>
-					<div class="sidebarText">Messages</div>
-				</a>
-            </li>  -->
-        </ul>
-    </nav>
-    <router-outlet></router-outlet>
+<div class="nav_container">
+	<div >
+	  <img  [src]="api.imgRoute+'logo'+'.png'">
+	</div>
+	<div class="menu">
+	  <ul>
+		<li >
+			<a routerLink="./Home">Home</a>
+		</li>
+		<li >
+			<a routerLink="LogIn">
+				Login
+			</a>
+		</li>
+		<li >
+			<a routerLink="./SignIn/new">Register</a>
+		</li>
+
+		<li >
+			<a routerLink="AllTrips">
+				AllTrips
+			</a>
+		</li> 
+		<li *ngIf="this.api.CurrentUser.userCode && !this.api.isAdmin">
+			<a routerLink="PersonalArea">
+				{{this.api.CurrentUser.firstName}}
+			</a>
+		</li> 
+		<li  *ngIf="this.api.isAdmin">
+			<a routerLink="Users">
+				AllUsers
+			</a>
+		</li> 
+	  </ul>
+	</div>
+	</div>
+	<router-outlet></router-outlet>   
 </body>
+<br>
 
 
-	<!-- <div class="content">
-		<div class="cards">
-			<div class="card">
-				<img src="https://images.pexels.com/photos/212324/pexels-photo-212324.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="image" />
-
-      			<div class="cardText">
-        			<p>Fresh Dewy Grass</p>
-        			<p>Grass with dew on it after a nice rainfall</p>
-				</div>
-			</div>
-			
-			<div class="card">
-				<img src="https://images.pexels.com/photos/5494694/pexels-photo-5494694.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="image" />
-
-      			<div class="cardText">
-        			<p>Lavish Fields</p>
-        			<p>The lavish fields of a farmer's land</p>
-				</div>
-			</div>
-			
-			<div class="card">
-				<img src="https://images.pexels.com/photos/1855422/pexels-photo-1855422.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="image" />
-
-      			<div class="cardText">
-        			<p>Fields</p>
-        			<p>Fields seen from the perspective of a drone.</p>
-				</div>
-			</div>
-		</div>
-    </div> -->

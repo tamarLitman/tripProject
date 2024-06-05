@@ -19,6 +19,12 @@ namespace Dal.Repositories
         {
             try
             {
+                var t = await db.Trips.FindAsync(bookingPlace.TripCode);
+                if (t != null)
+                {
+                    t.AvailablePlaces = (t.AvailablePlaces - bookingPlace.NumOfPlaces);
+                }
+
                 await db.BookingPlaces.AddAsync(bookingPlace);
                 await db.SaveChangesAsync();
                 return bookingPlace.BookingCode;
@@ -34,6 +40,9 @@ namespace Dal.Repositories
             try
             {
                 BookingPlace b=await db.BookingPlaces.FindAsync(id);
+                var t = await db.Trips.FindAsync(b.TripCode);
+                if (t != null)
+                    t.AvailablePlaces = t.AvailablePlaces + b.NumOfPlaces;
                 if (b!=null)
                 {
                     db.BookingPlaces.Remove(b);

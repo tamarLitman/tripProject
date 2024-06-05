@@ -1,0 +1,14 @@
+<div *ngFor="let b of bps.AllBookingPlaces" >
+    <mat-card class="example-card"  *ngIf="this.tripCode==b.tripCode">
+        <mat-card-header>
+          <mat-card-title-group>
+            <mat-card-subtitle>NumOfPlaces: {{b.numOfPlaces}}</mat-card-subtitle>
+            <mat-card-subtitle>BookingDate: {{b.bookingDate | date:'dd MMMM yyyy'}}</mat-card-subtitle>
+            <mat-card-subtitle>UserName: {{b.userName}}</mat-card-subtitle>
+          </mat-card-title-group>
+        </mat-card-header>
+        <mat-card-content>
+       
+        </mat-card-content>
+      </mat-card>
+    </div>

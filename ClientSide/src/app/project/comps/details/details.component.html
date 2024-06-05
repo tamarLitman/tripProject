@@ -1,20 +1,3 @@
-<!-- <table>
-    <caption>apartments</caption>
-
-    <tbody >
-
-      <tr *ngFor="let a of this.ts.AllTrip">
-        <td data-label="Account">{{a.tripCode}}</td>
-        <td data-label="Account">{{a.tripDestination}}</td>
-        <td data-label="Due Date">{{a.typeCode}}</td>
-      </tr>
-
-    </tbody>
-  </table> -->
-
-<!-- <h4>Basic mat-select</h4> -->
-
-
 <div class="div">
   <mat-card class="example-card">
     <mat-card-header>
@@ -55,8 +38,8 @@
       <!-- <span matTextPrefix>$&nbsp;</span> -->
       <!-- <span matTextSuffix>.00</span> -->
     </mat-form-field>
-    <button (click)="send()" mat-raised-button class="button" color="primary" type="submit">
-      <!-- s<mat-icon>favorite</mat-icon> -->
+    <button (click)="send()"  mat-raised-button class="button" color="primary" type="submit" >
+      <!-- s<mat-icon>favorite</mat-icon>  ??????????   sdisabled="!this.api.CurrentUser"-->
       add
     </button>
 

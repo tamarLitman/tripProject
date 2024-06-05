@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "IWy+uxiddU99RNvvs275HKRq4oKNVMc3B/ejoL4Cw/EeXRZtqwrKzrYkod2lPeo0LDs1s6bQHFt9NevxMHjRFw==",
+  "dgSpecHash": "8vu4aGj3guw+mRMUWNRdboS/OttqEHCKHLTlYeDXGsVGGurtRXkVPBsiRquiSDWhmtPEvWWhDYgZAQOLgB+g9w==",
   "success": true,
-  "projectFilePath": "D:\\Angular\\AngularProject\\TripProject\\Bll\\Bll.csproj",
+  "projectFilePath": "D:\\Angular\\AngularProject\\ServerSide\\Bll\\Bll.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\This User\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\This User\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",

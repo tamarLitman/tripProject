@@ -11,6 +11,8 @@ import { TripService } from '../../services/trip.service';
 import { ActivatedRoute } from '@angular/router';
 import { trip } from '../../classes/trip';
 import { MatIconModule } from '@angular/material/icon';
+import { BookingPlaces } from '../../classes/BookingPlaces';
+import { BookingPlaceService } from '../../services/booking-place.service';
 
 @Component({
   selector: 'app-details',
@@ -23,7 +25,8 @@ import { MatIconModule } from '@angular/material/icon';
 export class DetailsComponent implements OnInit {
   constructor(public ar:ActivatedRoute,
               public ts: TripService,
-              public api:ApiService) { }
+              public api:ApiService,
+            public bs:BookingPlaceService) { }
 code:number=0
 t:trip=new trip()
 show:Boolean=false;
@@ -39,21 +42,52 @@ this.ar.params.subscribe(
   }
 )
 }
+b:BookingPlaces=new BookingPlaces();
 send(){
-  if(this.t.availablePlaces)
+ 
+  console.log("??????????????????????")
+  debugger
+  console.log("!!!!!!!!!!!!!!!!!!!")
+  if(this.api.CurrentUser)
   {
-  if(this.t.availablePlaces>=this.amount)
+    if(this.t.availablePlaces)
     {
-      alert('you joined!')
-      this.t.availablePlaces=this.t.availablePlaces-this.amount;
-      console.log("^^^^^^^^^^^^^^^^^^^^^")
-      console.log(this.t.availablePlaces)
-      this.show=false
-    }
+    if(this.t.availablePlaces>=this.amount)
+      {
+        this.b.userCode=this.api.CurrentUser.userCode
+        this.b.bookingDate=new Date()
+        this.b.tripCode=this.t.tripCode
+        this.b.numOfPlaces=this.amount
+        this.b.userName=`${this.api.CurrentUser.firstName}`+" "+`${this.api.CurrentUser.lastName}`
+        this.b.tripDestination=this.t.tripDestination
+        this.b.tripDate=this.t.tripDate
+        ///?????????????????????????????????????????????
+        // this.b.bookingTime=`${new Date().getHours()}${":"}${new Date().getMinutes()}`
+        this.bs.addPlace(this.b).subscribe(
+          succ=>{
+            console.log("=====")
+            console.log(this.b)
+            console.log("addtrip")
+            console.log("=====")
+          },
+          err=>{
+            alert('not found!!')
+          }
+        )
+        // console.log(this.b)
+        alert('you joined!')
+        this.t.availablePlaces=this.t.availablePlaces-this.amount;
+        console.log("^^^^^^^^^^^^^^^^^^^^^")
+        console.log(this.t.availablePlaces)
+        this.show=false
+
+      }
+      else{
+        alert('not enough')
+      }
   }
-  else{
-    alert('not enough')
   }
+
 
 
 }

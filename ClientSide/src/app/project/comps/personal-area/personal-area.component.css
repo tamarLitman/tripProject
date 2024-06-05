@@ -1,0 +1,25 @@
+.example-card {
+    max-width: 400px;
+  }
+  .example-button-row button,
+.example-button-row a {
+  /* margin-right: 8px; */
+ 
+  float: right;
+  color:black;
+}
+
+  .example-header-image {
+    background-image: url('../../../../assets/pics/pic8.jpg');
+    background-size: cover;
+  }
+  .div{
+    margin:  4%;
+    float: left;
+    width: 350px;
+    height: 400px;
+  }
+  .img{
+    height: 300px;
+    width: 350px;
+  }

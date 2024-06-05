@@ -11,6 +11,7 @@ namespace Dal.IRepositories
     {
         Task<List<User>> GetAllUsers();
         Task<User> GetByMailAndPasword(string email, string password);
+        Task<User> GetById(int id);
         Task<List<Trip>> GetAllTrip(int userId);
         Task<int> AddUser(User user);
         Task<bool> DeleteUser(int id);

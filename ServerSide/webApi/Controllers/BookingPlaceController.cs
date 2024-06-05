@@ -34,7 +34,8 @@ namespace webApi.Controllers
 
 
         [HttpDelete]
-        public async Task<bool> DeletePlace([FromBody] int code)
+        [Route("delete/{code:int}")]
+        public async Task<bool> DeletePlace(int code)
         {
             return await bll.RemovePlace(code);
         }

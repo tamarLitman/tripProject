@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
   constructor(public user: UserService,
     public api: ApiService,
     public r: Router) { }
-
+  admin:User=new User();
   myForm: FormGroup = new FormGroup({});
   allUsers:Array<User>= new Array<User>();
   hide = true;
@@ -43,13 +43,18 @@ export class LoginComponent implements OnInit {
         alert('cannot get users')
       }
     )
+    this.admin=JSON.parse(window.localStorage.getItem("admin") || "");
+    console.log(this.admin);
   }
 
   get Email() { return this.myForm.controls['email'] }
   get Pass() { return this.myForm.controls['pass'] }
-
+  newP:String=new String()
   send() {
-
+    if(this.Email.value==this.admin.email && this.Pass.value==this.admin.loginPassword){
+      this.api.isAdmin=true;
+      this.r.navigate(['AllTrips'])
+    }
     this.user.getByEmailAndPass(this.Email.value, this.Pass.value)
       .subscribe(
         //אם המשתמש חדש מעביר להרשמה אחרת לטיולים
@@ -60,7 +65,7 @@ export class LoginComponent implements OnInit {
           {
             if(this.allUsers.find(x=>x.email==this.Email.value))
               alert('not correct password')
-            this.r.navigate(['SignIn'])
+            this.r.navigate(['./SignIn/new'])
           }
           else {
             alert("hello ")

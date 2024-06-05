@@ -31,10 +31,13 @@ namespace Bll.Services
         {
             if (bp.NumOfPlaces > 0 && bp.TripDate>DateTime.Now)
             {
+                
                 BookingPlace b=mapper.Map<BookingPlace>(bp);
+               
                 b.BookingTime=(TimeSpan?)DateTime.Now.TimeOfDay;
                 b.BookingDate=DateTime.Now;
                 return await dal.AddBookingPlace(b);
+
          
             }
             return -1;

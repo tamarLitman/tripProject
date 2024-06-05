@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "cbugj3SFFVkCfX0GjeYOEKCGSeKSpIxIvRMEpgzSAsAuIbJWpVMnGksZJ3Ql4K168JMHvJYxxtjSs/3M1p4HGw==",
+  "dgSpecHash": "xBqfDHVRT1LXlTReJk8840Cv6aRVlgFKFH5DSh7KOwMi5CijZJtfYHqY472YczEaa48us6/0pqnf6Lpq+1e4Ug==",
   "success": true,
-  "projectFilePath": "D:\\Angular\\AngularProject\\TripProject\\Dal\\Dal.csproj",
+  "projectFilePath": "D:\\Angular\\AngularProject\\ServerSide\\Dal\\Dal.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\This User\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\This User\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",

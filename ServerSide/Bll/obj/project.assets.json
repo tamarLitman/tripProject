@@ -4185,11 +4185,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Angular\\AngularProject\\TripProject\\Bll\\Bll.csproj",
+      "projectUniqueName": "D:\\Angular\\AngularProject\\ServerSide\\Bll\\Bll.csproj",
       "projectName": "Bll",
-      "projectPath": "D:\\Angular\\AngularProject\\TripProject\\Bll\\Bll.csproj",
+      "projectPath": "D:\\Angular\\AngularProject\\ServerSide\\Bll\\Bll.csproj",
       "packagesPath": "C:\\Users\\This User\\.nuget\\packages\\",
-      "outputPath": "D:\\Angular\\AngularProject\\TripProject\\Bll\\obj\\",
+      "outputPath": "D:\\Angular\\AngularProject\\ServerSide\\Bll\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -4211,11 +4211,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\Angular\\AngularProject\\TripProject\\Dal\\Dal.csproj": {
-              "projectPath": "D:\\Angular\\AngularProject\\TripProject\\Dal\\Dal.csproj"
+            "D:\\Angular\\AngularProject\\ServerSide\\Dal\\Dal.csproj": {
+              "projectPath": "D:\\Angular\\AngularProject\\ServerSide\\Dal\\Dal.csproj"
             },
-            "D:\\Angular\\AngularProject\\TripProject\\Dto\\Dto.csproj": {
-              "projectPath": "D:\\Angular\\AngularProject\\TripProject\\Dto\\Dto.csproj"
+            "D:\\Angular\\AngularProject\\ServerSide\\Dto\\Dto.csproj": {
+              "projectPath": "D:\\Angular\\AngularProject\\ServerSide\\Dto\\Dto.csproj"
             }
           }
         }

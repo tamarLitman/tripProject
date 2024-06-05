@@ -10,6 +10,7 @@ import { ApiService } from '../../services/api.service';
 import { TripService } from '../../services/trip.service';
 import { MatButtonModule } from '@angular/material/button';
 import { trip } from '../../classes/trip';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-trip-form',
@@ -38,14 +39,38 @@ export class TripFormComponent implements OnInit {
   
     constructor(private _formBuilder: FormBuilder,
                 public api:ApiService,
-                public t:TripService) {}
-
-  myForm:FormGroup=new FormGroup({})
+                public ts:TripService,
+              public ar:ActivatedRoute) {}
 
   getFloatLabelValue(): FloatLabelType {
     return this.floatLabelControl.value || 'auto';
   }
+  thisTrip:trip=new trip()
+  thisTripCode:number=0;
+  myForm:FormGroup=new FormGroup({})
   ngOnInit(): void {
+    this.ar.params.subscribe(p=>this.thisTripCode=p["code"])
+    this.ts.getByCode(this.thisTripCode)
+    .subscribe(
+      succ=> {
+        console.log("~~~~~~~~~~~~~~~~");
+        console.log(succ);
+        this.thisTrip=succ;
+        this.myForm=new FormGroup(
+          {
+            'dest':new FormControl(this.thisTrip.tripDestination,[Validators.required]),
+            'typeCode':new FormControl(this.thisTrip.typeCode ,[Validators.required]),
+            'date':new FormControl(this.thisTrip.tripDate,[Validators.required]),
+            'duration':new FormControl(this.thisTrip.tripDurationHours,[Validators.required]),
+            'places':new FormControl(this.thisTrip.availablePlaces,[Validators.required]),
+            'price':new FormControl(this.thisTrip.price,[Validators.required]),
+            'photo':new FormControl(this.thisTrip.photo,[Validators.required]),
+          })
+      },
+      err=>{
+        alert('failed')
+        console.log(err);
+      })
     this.myForm=new FormGroup(
       {
         //משתנים להוספת טיול
@@ -69,36 +94,31 @@ export class TripFormComponent implements OnInit {
   get myPhoto(){return this.myForm.controls['photo']}
 
   newTrip:trip=new trip();
-
-  
-
-    send(){
-      //יצירת טיול חדש והוספתו לטיולים
-      this.newTrip.tripDestination=this.myDest.value,
-      this.newTrip.typeCode=this.myTypeCode.value,
-      this.newTrip.tripDate=this.myDate.value,
-      this.newTrip.tripDurationHours=this.myDurationHours.value,
-      this.newTrip.price=this.myPrice.value,
-      this.newTrip.photo=this.myPhoto.value,
-      this.newTrip.availablePlaces=this.myPlaces.value
-     
-      this.newTrip.typeName="Beach"
-      this.newTrip.isFirstAid=true
-      this.t.addTrip(this.newTrip).subscribe(
-        succ=>{
-          console.log("=====")
-          console.log(this.newTrip)
-          console.log(this.newTrip.typeName)
-          console.log(succ)
-          console.log("addtrip")
-          console.log("=====")
-        },
-        err=>{
-          alert('not found!!')
+      send(){
+        debugger
+        this.newTrip.isFirstAid=true;
+        this.newTrip.typeCode=this.myTypeCode.value;
+        this.newTrip.tripDate=this.myDate.value;
+        this.newTrip.tripDestination=this.myDest.value;
+        this.newTrip.tripDurationHours=this.myDurationHours.value;
+        this.newTrip.availablePlaces=this.myPlaces.value;
+        this.newTrip.photo=this.myPhoto.value;
+        this.newTrip.price=this.myPrice.value;
+        this.newTrip.typeName="beach";
+        console.log(this.newTrip);
+        if(this.thisTripCode==-1)
+        {
+          this.ts.addTrip(this.newTrip)
+          .subscribe(succ=>{
+            alert('succ');
+            console.log(succ);
+          },
+          err=>{
+            alert('err');
+            console.log(err);
+          })
         }
-      )
       }
- 
     }
   
 

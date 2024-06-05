@@ -46,8 +46,9 @@ namespace webApi.Controllers
             return await bll.UpdateUser(u);
         }
 
-        [HttpDelete]
-        public async Task<bool> DeleteUser([FromBody] int code)
+        [HttpDelete("{code}")]
+
+        public async Task<bool> DeleteUser(int code)
         {
             return await bll.DeleteUser(code);
         }

@@ -4164,11 +4164,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Angular\\AngularProject\\TripProject\\Dto\\Dto.csproj",
+      "projectUniqueName": "D:\\Angular\\AngularProject\\ServerSide\\Dto\\Dto.csproj",
       "projectName": "Dto",
-      "projectPath": "D:\\Angular\\AngularProject\\TripProject\\Dto\\Dto.csproj",
+      "projectPath": "D:\\Angular\\AngularProject\\ServerSide\\Dto\\Dto.csproj",
       "packagesPath": "C:\\Users\\This User\\.nuget\\packages\\",
-      "outputPath": "D:\\Angular\\AngularProject\\TripProject\\Dto\\obj\\",
+      "outputPath": "D:\\Angular\\AngularProject\\ServerSide\\Dto\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -4190,8 +4190,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\Angular\\AngularProject\\TripProject\\Dal\\Dal.csproj": {
-              "projectPath": "D:\\Angular\\AngularProject\\TripProject\\Dal\\Dal.csproj"
+            "D:\\Angular\\AngularProject\\ServerSide\\Dal\\Dal.csproj": {
+              "projectPath": "D:\\Angular\\AngularProject\\ServerSide\\Dal\\Dal.csproj"
             }
           }
         }

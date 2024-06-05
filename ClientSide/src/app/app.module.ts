@@ -16,12 +16,14 @@ import { SigninComponent } from './project/comps/signin/signin.component';
 import { HighlightDirective } from './highlight.directive';
 import { PersonalAreaComponent } from './project/comps/personal-area/personal-area.component';
 import { DetailsComponent } from './project/comps/details/details.component';
+import { HomeComponent } from './project/comps/home/home.component';
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     HighlightDirective,
-    PersonalAreaComponent,
+    HomeComponent,
+    // PersonalAreaComponent,
     // AllTripsComponent
   ],
   imports: [
@@ -32,6 +34,7 @@ import { DetailsComponent } from './project/comps/details/details.component';
     HttpClientModule,
     BrowserAnimationsModule,
     AllTripsComponent,
+    PersonalAreaComponent,
     LoginComponent,
     TripFormComponent,
     SigninComponent,

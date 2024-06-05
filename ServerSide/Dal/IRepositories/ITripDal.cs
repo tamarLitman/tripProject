@@ -15,6 +15,7 @@ namespace Dal.IRepositories
         Task<int> AddTrip(Trip trip);
         Task<bool> DeleteTrip(int code);
         Task<bool> UpdateTrip(Trip trip);
+        Task<bool> isFirstAid(Trip trip);
 
     }
 }

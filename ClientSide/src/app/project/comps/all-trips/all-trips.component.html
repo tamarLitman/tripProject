@@ -1,51 +1,43 @@
-<!-- <table>
-    <caption>apartments</caption>
-
-    <tbody >
-
-      <tr *ngFor="let a of this.ts.AllTrip">
-        <td data-label="Account">{{a.tripCode}}</td>
-        <td data-label="Account">{{a.tripDestination}}</td>
-        <td data-label="Due Date">{{a.typeCode}}</td>
-      </tr>
-
-    </tbody>
-  </table> -->
-
-<!-- <h4>Basic mat-select</h4> -->
+<br>
 <mat-form-field>
   <mat-label>Trip Type</mat-label>
-  <mat-select name="selectedType" [(ngModel)]="selectedType">
+  <mat-select name="selectedType" [(ngModel)]="selectedType" (selectionChange)="filter(selectedType)">
     <mat-option  *ngFor="let t of this.ts.AllTypes" [value]="t.typeCode">{{t.typeCode}}:{{t.typeName}}</mat-option>
   </mat-select>
 </mat-form-field>
+<br>
+<mat-form-field *ngIf="this.a.isAdmin">
+  <mat-label>timing</mat-label>
+  <mat-select name="selectedTime" [(ngModel)]="selectedTime" (selectionChange)="filterTime()">
+      <mat-option *ngFor="let t of this.allTimes" [value]="t">{{t}}</mat-option>
+  </mat-select>
+</mat-form-field>
+<br>
+<button class="button" mat-fab extended color="primary"*ngIf="this.a.isAdmin" (click)="add(-1)">
+  new trip
+</button>
 
-<div class="div" *ngFor="let t of this.ts.AllTrip">
+<div class="div" *ngFor="let t of this.ts.FilterTrip">
 <div *ngIf="(selectedType==0 || selectedType==t.typeCode)" >
   <mat-card class="example-card">
     <mat-card-header>
       <div mat-card-avatar class="example-header-image"></div>
       <mat-card-title>Destination: {{t.tripDestination}}</mat-card-title>
-      <mat-card-subtitle>At: {{t.tripDate}}</mat-card-subtitle>
+      <mat-card-subtitle>At: {{t.tripDate | date:'dd MMMM yyyy'}}</mat-card-subtitle>
       <mat-card-subtitle>Price: {{t.price}}</mat-card-subtitle>
       <mat-card-subtitle>typeCode: {{t.typeCode}}</mat-card-subtitle>
       
     </mat-card-header>
-    <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
     <img class="img" [src]="a.imgRoute+t.photo+'.jpg'">
-    <mat-card-content>
-      <!-- <p>
-          The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-          A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-          bred for hunting.
-        </p> -->
-    </mat-card-content>
     <mat-card-actions>
-      <!-- <button mat-button>LIKE</button> -->
+      <p *ngIf="this.a.isAdmin && t.isFirstAid==false" >noFirstAid</p>
 
-      <button (click)="send(t.tripCode!)" mat-button>details</button>
+      <button (click)="send(t.tripCode!)" *ngIf="futureTrip(t.tripDate)==true"  mat-button>details</button>
+      <button mat-button *ngIf="this.a.isAdmin"(click)="add(t.tripCode!)">edit</button>    
+      <button *ngIf="this.a.isAdmin" mat-button (click)="orders(t.tripCode!)">bookingPlaces</button>   
+
     </mat-card-actions>
   </mat-card>
 </div>
 </div>
-<!-- <router-outlet></router-outlet> -->
+

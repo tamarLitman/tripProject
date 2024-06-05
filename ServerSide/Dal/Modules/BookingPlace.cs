@@ -7,7 +7,7 @@ public partial class BookingPlace
 {
     public int BookingCode { get; set; }
 
-    public int? UserCode { get; set; }
+    public int UserCode { get; set; }
 
     public DateTime? BookingDate { get; set; }
 

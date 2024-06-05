@@ -16,5 +16,6 @@ namespace Bll.IServices
         Task<bool> UpdateTrip(TripDto trip);
         Task<bool> DeleteTrip(int id);
 
+
     }
 }
